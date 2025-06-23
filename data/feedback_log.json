@@ -1,0 +1,8 @@
+[
+    {
+        "query": "global warming is harming the nature\r\n",
+        "response": "An error occurred while generating response from OpenAI: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}. Please check the logs.",
+        "helpful": true,
+        "timestamp": "2025-06-23T10:53:14.987445"
+    }
+]

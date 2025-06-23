@@ -1,0 +1,110 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8">
+  AI Assistant
+</h1>
+
+<form action="/generate" method="post" class="space-y-6">
+  <div class="flex flex-col">
+    <label
+      for="function_choice"
+      class="text-lg font-semibold text-gray-700 mb-2"
+      >Choose a Function:</label
+    >
+    <select
+      id="function_choice"
+      name="function_choice"
+      class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 sm:text-lg cursor-pointer"
+    >
+      <option value="answer_question">Answer Questions</option>
+      <option value="summarize_text">Summarize Text</option>
+      <option value="generate_creative_content">
+        Generate Creative Content
+      </option>
+    </select>
+  </div>
+
+  <div class="flex flex-col">
+    <label for="prompt_style" class="text-lg font-semibold text-gray-700 mb-2"
+      >Choose a Prompt Style:</label
+    >
+    <select
+      id="prompt_style"
+      name="prompt_style"
+      class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 sm:text-lg cursor-pointer"
+    >
+      <!-- Options will be dynamically updated by JavaScript based on function_choice -->
+      <option value="standard">Standard</option>
+      <option value="detailed">Detailed</option>
+      <option value="concise">Concise</option>
+    </select>
+  </div>
+
+  <div class="flex flex-col">
+    <label for="user_input" class="text-lg font-semibold text-gray-700 mb-2"
+      >Your Query / Text:</label
+    >
+    <textarea
+      id="user_input"
+      name="user_input"
+      rows="8"
+      class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 sm:text-lg"
+      placeholder="Enter your question, text to summarize, or topic for creative content here..."
+      required
+    ></textarea>
+  </div>
+
+  <div class="flex justify-center">
+    <button
+      type="submit"
+      class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full text-xl shadow-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transform transition duration-300 ease-in-out hover:scale-105"
+    >
+      Generate Response
+    </button>
+  </div>
+</form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const functionChoice = document.getElementById("function_choice");
+    const promptStyle = document.getElementById("prompt_style");
+
+    function updatePromptStyles() {
+      const selectedFunction = functionChoice.value;
+      let optionsHtml = "";
+
+      if (selectedFunction === "answer_question") {
+        optionsHtml = `
+                    <option value="general">General (Clear and Concise)</option>
+                    <option value="detailed">Detailed (Comprehensive Answer)</option>
+                    <option value="concise">Concise (Brief, Direct Answer)</option>
+                `;
+      } else if (selectedFunction === "summarize_text") {
+        optionsHtml = `
+                    <option value="standard">Standard (Main Ideas & Details)</option>
+                    <option value="key_points">Key Points (Bullet Points)</option>
+                    <option value="very_short">Very Short (One Paragraph)</option>
+                `;
+      } else if (selectedFunction === "generate_creative_content") {
+        optionsHtml = `
+                    <option value="story_standard">Story (Short Story)</option>
+                    <option value="story_imaginative">Story (Imaginative & Vivid)</option>
+                    <option value="story_structured">Story (Structured with plot points)</option>
+                    <option value="poem_standard">Poem (General)</option>
+                    <option value="poem_imaginative">Poem (Evocative & Artistic)</option>
+                    <option value="poem_structured">Poem (Structured with rhyme)</option>
+                    <option value="essay_idea_standard">Essay Idea (General)</option>
+                    <option value="essay_idea_imaginative">Essay Idea (Unique & Thought-provoking)</option>
+                    <option value="essay_idea_structured">Essay Idea (Three Ideas with Outlines)</option>
+                `;
+      }
+      promptStyle.innerHTML = optionsHtml;
+    }
+
+    // Initial update
+    updatePromptStyles();
+
+    // Update on change
+    functionChoice.addEventListener("change", updatePromptStyles);
+  });
+</script>
+{% endblock %}

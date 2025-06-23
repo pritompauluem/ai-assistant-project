@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8">
+  AI Assistant Response
+</h1>
+
+<div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">Your Query:</h2>
+  <p class="text-gray-700 whitespace-pre-wrap">{{ query }}</p>
+</div>
+
+<div class="bg-purple-100 p-6 rounded-lg shadow-md mb-8">
+  <h2 class="text-2xl font-semibold text-purple-800 mb-4">AI Response:</h2>
+  {# The 'response' variable now contains HTML generated from Markdown. #} {#
+  The |safe filter tells Jinja2 to render this as HTML, not escape it as plain
+  text. #}
+  <div class="text-gray-800 font-sans leading-relaxed text-lg break-words">
+    {{ response | safe }}
+  </div>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+    Was this response helpful?
+  </h2>
+  <form action="/feedback" method="post" class="flex justify-center space-x-4">
+    <input type="hidden" name="query" value="{{ query }}" />
+    {# Pass the original (unformatted) AI response for feedback logging #}
+    <input type="hidden" name="response" value="{{ original_ai_response }}" />
+    <button
+      type="submit"
+      name="helpful"
+      value="yes"
+      class="px-6 py-3 bg-green-500 text-white font-bold rounded-full text-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 transition duration-200 ease-in-out"
+    >
+      Yes 👍
+    </button>
+    <button
+      type="submit"
+      name="helpful"
+      value="no"
+      class="px-6 py-3 bg-red-500 text-white font-bold rounded-full text-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300 transition duration-200 ease-in-out"
+    >
+      No 👎
+    </button>
+  </form>
+</div>
+
+<div class="text-center">
+  <a
+    href="/"
+    class="inline-block px-6 py-3 bg-gray-200 text-gray-800 font-bold rounded-full text-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 transition duration-200 ease-in-out"
+  >
+    Go Back
+  </a>
+</div>
+{% endblock %}

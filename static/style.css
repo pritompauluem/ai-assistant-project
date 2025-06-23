@@ -1,0 +1,35 @@
+/* Custom styles */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Basic styling adjustments for rounded corners, shadows, etc.
+   TailwindCSS classes are preferred for element styling.
+   This file is mainly for custom fonts or overrides if necessary. */
+
+/* Adding a subtle glow effect to buttons on hover */
+button:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Cyan glow */
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Enhancing input fields focus state */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #8b5cf6; /* Purple-500 */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  outline: none;
+}
+
+/* General card styling for consistency */
+.card {
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+  background-color: #ffffff; /* bg-white */
+  padding: 2rem; /* p-8 */
+  max-width: 48rem; /* max-w-4xl */
+  width: 100%;
+}
