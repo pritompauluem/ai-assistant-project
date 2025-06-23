@@ -14,28 +14,25 @@ This project implements a basic web-based AI Assistant using Flask and the Googl
 - **Feedback Mechanism:** Users can provide feedback (helpful/not helpful) on AI responses, which is logged for potential analysis and improvement.
 
 ## File Structure
+├── venv/                   # Virtual environment folder (ignored by Git)
+├── app.py                  # Main Flask application: orchestrates routes, logic, and rendering
+├── prompts.py              # Custom prompt designs: houses the templates for guiding AI responses
+├── gemini_api.py           # Functions to interact with Google Gemini API: abstracts API calls
+├── feedback.py             # Manages user feedback: handles saving and retrieving feedback data
+├── utils.py                # Helper functions: includes utilities for directory management and logging
+├── requirements.txt        # List of project dependencies: defines required Python packages
+├── README.md               # This file: provides an overview, setup, and usage instructions
+├── .env                    # Optional: For setting GOOGLE_API_KEY locally (ignored by Git for security)
+├── templates/              # HTML templates for web UI: contains Jinja2 templates for pages
+│   ├── base.html           # Common layout template: defines the basic structure and styling for all pages
+│   ├── index.html          # Input page: allows users to select function, prompt style, and input query
+│   └── result.html         # Output page: displays AI response and feedback options
+├── static/                 # Static assets: serves CSS, JavaScript, and images
+│   └── style.css           # Basic styling: custom CSS to enhance the application's appearance
+└── data/                   # Stores persistent data: where application logs and feedback are stored
+├── feedback_log.json   # Collected feedback in JSON: stores user feedback data
+└── logs.txt            # Application logs: records application events and errors
 
-The project's file structure is organized as follows, listing key files and directories with brief descriptions:
-''' bash
-├── venv/ # Virtual environment folder
-├── app.py # Main Flask application
-├── prompts.py # Custom prompt designs for each function
-├── gemini_api.py # Functions to interact with Google Gemini API
-├── feedback.py # Manages user feedback (save, read)
-├── utils.py # Helper functions (e.g., ensure directory, log events)
-├── requirements.txt # List of project dependencies
-├── README.md # This file
-├── .env # Optional: For setting GOOGLE_API_KEY locally
-├── templates/ # HTML templates for web UI
-│ ├── base.html # Common layout template
-│ ├── index.html # Input page (choose function + input)
-│ └── result.html # Output page (shows response + feedback)
-├── static/ # Static assets (CSS)
-│ └── style.css # Basic styling
-└── data/ # Stores persistent data
-├── feedback_log.json # Collected feedback in JSON
-└── logs.txt # Application logs
-'''
 ## Setup Instructions
 
 1.  **Clone the Repository (if applicable):**
