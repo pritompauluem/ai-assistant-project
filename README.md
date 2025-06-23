@@ -14,6 +14,7 @@ This project implements a basic web-based AI Assistant using Flask and the Googl
 - **Feedback Mechanism:** Users can provide feedback (helpful/not helpful) on AI responses, which is logged for potential analysis and improvement.
 
 ## File Structure
+```html
 ├── venv/                   # Virtual environment folder (ignored by Git)
 ├── app.py                  # Main Flask application: orchestrates routes, logic, and rendering
 ├── prompts.py              # Custom prompt designs: houses the templates for guiding AI responses
@@ -32,7 +33,7 @@ This project implements a basic web-based AI Assistant using Flask and the Googl
 └── data/                   # Stores persistent data: where application logs and feedback are stored
 ├── feedback_log.json   # Collected feedback in JSON: stores user feedback data
 └── logs.txt            # Application logs: records application events and errors
-
+```
 ## Setup Instructions
 
 1.  **Clone the Repository (if applicable):**
