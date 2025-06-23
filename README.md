@@ -16,7 +16,7 @@ This project implements a basic web-based AI Assistant using Flask and the Googl
 ## File Structure
 
 The project's file structure is organized as follows, listing key files and directories with brief descriptions:
-
+''' bash
 ├── venv/ # Virtual environment folder
 ├── app.py # Main Flask application
 ├── prompts.py # Custom prompt designs for each function
@@ -35,7 +35,7 @@ The project's file structure is organized as follows, listing key files and dire
 └── data/ # Stores persistent data
 ├── feedback_log.json # Collected feedback in JSON
 └── logs.txt # Application logs
-
+'''
 ## Setup Instructions
 
 1.  **Clone the Repository (if applicable):**
