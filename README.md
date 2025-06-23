@@ -132,11 +132,3 @@ This project implements a basic web-based AI Assistant using Flask and the Googl
 
 7.  **Go Back:**
     - Click "Go Back" to return to the main input page and try another query.
-
-## Documentation (user_guide.pptx)
-
-A separate PowerPoint file named `user_guide.pptx` would contain a user guide explaining how to use the AI Assistant and detailing its different functions. This file is designed as a standalone visual guide for end-users, simplifying complex setup and usage details into an accessible format for presentations or quick reference. It covers the same ground as this README but in a more visual, step-by-step manner.
-
----
-
-Feel free to explore the code, modify prompts, and expand the functionality!
